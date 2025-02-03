@@ -2,8 +2,8 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
-const app = express();
 
+const app = express();
 const route = require("./route");
 const { addUser, findUser, getRoomUsers, removeUser } = require('./users');
 
@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
         }
     });
 
-    io.on('disconnect', () => {
+    socket.on('disconnect', () => {
         console.log("Disconnect");
     });
 });
