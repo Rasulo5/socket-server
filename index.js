@@ -8,15 +8,21 @@ const app = express();
 const route = require("./route");
 const { addUser, findUser, getRoomUsers, removeUser } = require('./users');
 
-app.use(cors({ origin: "*" }));
+aapp.use(cors({
+  origin: 'https://bejewelled-queijadas-a3d1f3.netlify.app', // Разрешить запросы только с этого домена
+  methods: ['GET', 'POST'], // Разрешить только определённые методы
+  credentials: true, // Разрешить передачу кук и заголовков авторизации
+}));
 app.use(route);
 const server = http.createServer(app);
 
+// Настройка CORS для Socket.IO
 const io = new Server(server, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-    },
+  cors: {
+    origin: 'https://bejewelled-queijadas-a3d1f3.netlify.app', // Разрешить запросы только с этого домена
+    methods: ['GET', 'POST'], // Разрешить только определённые методы
+    credentials: true, // Разрешить передачу кук и заголовков авторизации
+  },
 });
  
 io.on('connection', (socket) => {
