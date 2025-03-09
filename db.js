@@ -1,10 +1,10 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'Rassell1933@',
+    user: 'postgres',
     host: 'https://online-chat-7l13.onrender.com',
     database: 'postgres',
-    password: 'postgres',
+    password: 'Rassell1933@',
     port: 5432
 });
 
