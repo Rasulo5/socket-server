@@ -70,7 +70,7 @@ io.on('connection', (socket) => {
         }
     });
 
-    io.on('disconnect', () => {
+    socket.on('disconnect', () => {
         console.log("Disconnect");
     });
 
