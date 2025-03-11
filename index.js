@@ -8,7 +8,7 @@ const app = express();
 const route = require("./route");
 const { addUser, findUser, getRoomUsers, removeUser } = require('./users');
 
-aapp.use(cors({
+app.use(cors({
   origin: 'https://bejewelled-queijadas-a3d1f3.netlify.app', // Разрешить запросы только с этого домена
   methods: ['GET', 'POST'], // Разрешить только определённые методы
   credentials: true, // Разрешить передачу кук и заголовков авторизации
