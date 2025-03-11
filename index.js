@@ -9,7 +9,7 @@ const route = require("./route");
 const { addUser, findUser, getRoomUsers, removeUser } = require('./users');
 
 app.use(cors({
-  origin: 'https://bejewelled-queijadas-a3d1f3.netlify.app', // Разрешить запросы только с этого домена
+  origin: '*', // Разрешить запросы только с этого домена
   methods: ['GET', 'POST'], // Разрешить только определённые методы
   credentials: true, // Разрешить передачу кук и заголовков авторизации
 }));
@@ -19,7 +19,7 @@ const server = http.createServer(app);
 // Настройка CORS для Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: 'https://bejewelled-queijadas-a3d1f3.netlify.app', // Разрешить запросы только с этого домена
+    origin: '*', // Разрешить запросы только с этого домена
     methods: ['GET', 'POST'], // Разрешить только определённые методы
     credentials: true, // Разрешить передачу кук и заголовков авторизации
   },
